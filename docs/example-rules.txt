@@ -1,0 +1,21 @@
+*raw
+:MCG000001I - [0:0]
+:MCG000001O - [0:0]
+:MCG000001P - [0:0]
+-A MCG000001I -m set --match-set MCG000001L src -m comment --comment mcg:in:local -j RETURN
+-A MCG000001I -m set ! --match-set MCG000001G src -m comment --comment mcg:in:country -j DROP
+-A MCG000001I -m set --match-set MCG000001S src -m comment --comment mcg:in:skynet -j DROP
+-A MCG000001I -p udp --sport 443 -m comment --comment mcg:in:port1 -j DROP
+-A MCG000001I -m comment --comment mcg:in:passed -j RETURN
+-A MCG000001O -m set --match-set MCG000001L dst -m comment --comment mcg:out:local -j RETURN
+-A MCG000001O -m set ! --match-set MCG000001G dst -m comment --comment mcg:out:country -j DROP
+-A MCG000001O -m set --match-set MCG000001S dst -m comment --comment mcg:out:skynet -j DROP
+-A MCG000001O -p udp --dport 443 -m comment --comment mcg:out:port1 -j DROP
+-A MCG000001O -m comment --comment mcg:out:passed -j RETURN
+-A MCG000001P -i eth0 -j MCG000001I
+-A MCG000001P -i eth0 -j RETURN
+-A MCG000001P -m set ! --match-set MCG000001L src -m set --match-set MCG000001L dst -j MCG000001I
+-A MCG000001P -m set ! --match-set MCG000001L src -m set --match-set MCG000001L dst -j RETURN
+-A MCG000001P -j MCG000001O
+COMMIT
+

@@ -1,0 +1,30 @@
+#!/bin/sh
+# MCG-ADDON launcher; remains usable for emergency-off even without Entware.
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:/opt/sbin:/opt/bin
+export PATH
+APP=/opt/share/merlin-country-guard
+case "${1:-status}" in
+ emergency-off)
+   # A sentinel stops the periodic repair/watchdog from re-enabling a policy.
+   : > /tmp/mcg-emergency-off
+   iptables -t raw -F MCG_PRE 2>/dev/null
+   iptables -t raw -F MCG_OUT 2>/dev/null
+   echo 'Add-on anchors flushed. Existing Merlin/Skynet rules were not modified.'
+   echo 'Temporary: reboot clears the emergency marker and may restore the confirmed policy.'
+   exit 0 ;;
+ clear-emergency)
+   rm -f /tmp/mcg-emergency-off
+   echo 'Emergency marker cleared. No policy was reapplied; start a new test in the web interface.'
+   exit 0 ;;
+esac
+[ -x /opt/bin/python3 ] && [ -f "$APP/guard.py" ] || {
+ echo 'Python or the USB installation is missing. Emergency shutdown: /jffs/scripts/mcg emergency-off' >&2
+ exit 1
+}
+case "${1:-status}" in
+ startup)
+   /opt/bin/python3 "$APP/install_support.py" startup || exit 1
+   exec /opt/bin/python3 "$APP/guard.py" boot ;;
+ mount) exec /opt/bin/python3 "$APP/install_support.py" mount ;;
+ *) exec /opt/bin/python3 "$APP/guard.py" "${1:-status}" "${2:-}" ;;
+esac

@@ -1,0 +1,54 @@
+/* Scoped styling: does not replace Merlin's navigation styles. */
+#mcg { --bg:#131d2b; --card:#1c2939; --edge:#34465b; --ink:#eef4fa; --muted:#acbdd0; --accent:#70d8c4; color:var(--ink); font:14px/1.55 system-ui,-apple-system,Segoe UI,sans-serif; max-width:1180px; margin:22px auto; padding:0 20px 42px; box-sizing:border-box; }
+#mcg * { box-sizing:border-box; }
+#mcg h1 {font-size:29px; line-height:1.2; margin:6px 0 12px; letter-spacing:-.7px; color:var(--ink)}
+#mcg h2 {font-size:19px; margin:0 0 12px; color:var(--ink)}
+#mcg h3 {font-size:15px; margin:14px 0 8px; color:var(--ink)}
+#mcg p {margin:8px 0 14px} #mcg a {color:var(--accent)}
+#mcg .muted {color:var(--muted)} #mcg .eyebrow {font-size:11px; font-weight:700; letter-spacing:2px; color:var(--accent)}
+#mcg .topline, #mcg .toolbar {display:flex; align-items:center; flex-wrap:wrap; gap:10px; justify-content:space-between}
+#mcg .badge {font-size:12px; border:1px solid var(--edge); border-radius:30px; padding:5px 12px; background:#243648}
+#mcg .card {background:var(--card); border:1px solid var(--edge); border-radius:13px; padding:20px; margin:16px 0; min-width:0;}
+#mcg .banner {padding:12px 16px; border:1px solid #647251; background:#2b3328; border-radius:9px; margin:12px 0; overflow-wrap:anywhere}
+#mcg .banner.bad {border-color:#945052; background:#3a252d} #mcg .banner.good {border-color:#3b7769; background:#1d3533}
+#mcg .tabs {display:flex; flex-wrap:wrap; gap:5px; border-bottom:1px solid var(--edge); padding-bottom:8px; margin-top:20px}
+#mcg button, #mcg .button {font:inherit; border:1px solid var(--edge); border-radius:7px; background:#293b50; color:var(--ink); padding:9px 13px; cursor:pointer; white-space:normal; text-decoration:none; display:inline-block; }
+#mcg button:hover {background:#354e67} #mcg button.active, #mcg .primary {background:var(--accent); color:#112c2a; border-color:var(--accent); font-weight:650}
+#mcg button.danger {background:#512e38; border-color:#9b5d65} #mcg button:disabled {opacity:.5; cursor:wait}
+#mcg input:not([type=checkbox]), #mcg select, #mcg textarea {font:inherit; background:#111d2b; border:1px solid #4a5e74; color:var(--ink); border-radius:6px; padding:8px 10px; width:100%; min-width:0; }
+#mcg input[type=checkbox] {accent-color:var(--accent); width:17px; height:17px; flex:0 0 auto; vertical-align:middle}
+#mcg label {display:block; margin:8px 0} #mcg label.check {display:flex; align-items:flex-start; gap:9px}
+#mcg textarea {resize:vertical; min-height:150px; font:12px/1.6 ui-monospace,Consolas,monospace;}
+#mcg .grid {display:grid; grid-template-columns:1fr 1fr; gap:16px}
+#mcg .kpis {display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:18px 0}
+#mcg .kpi {background:var(--card); border:1px solid var(--edge); border-radius:11px; padding:17px}
+#mcg .kpi strong {display:block; font-size:27px; font-weight:650; line-height:1.3; margin:4px 0}
+#mcg .kpi span {font-size:12px; color:var(--muted)}
+#mcg .country-grid {display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:4px 12px; max-height:340px; overflow-y:auto; padding:10px 3px;}
+#mcg .country-grid label {margin:0; padding:7px; border-radius:5px; display:flex; align-items:center; gap:8px; font-size:13px}
+#mcg .country-grid label:has(input:checked) {background:#284b48}
+#mcg .country-grid .code {font-size:11px; color:var(--muted); margin-left:auto; }
+#mcg .chips {display:flex; gap:6px; flex-wrap:wrap; margin:10px 0}
+#mcg .chip {border:1px solid #427f71; color:var(--accent); border-radius:20px; padding:3px 10px; font-size:12px}
+#mcg .tablewrap {width:100%; min-width:0; overflow-x:auto;}
+#mcg table {width:100%; border-collapse:collapse; color:var(--ink); font-size:12px; table-layout:fixed;}
+#mcg th {text-align:left; font-weight:600; color:var(--muted); border-bottom:1px solid #53667a; background:transparent; padding:9px 6px; overflow-wrap:anywhere}
+#mcg td {border-bottom:1px solid #304052; padding:9px 6px; background:transparent; overflow-wrap:anywhere; word-break:normal}
+#mcg pre {white-space:pre-wrap; overflow-wrap:anywhere; max-height:430px; overflow-y:auto; background:#101a28; padding:16px; border-radius:7px; font-size:12px;}
+#mcg .hidden {display:none!important} #mcg .small {font-size:12px} #mcg .right {text-align:right}
+#mcg .row {display:flex; gap:12px; align-items:end; flex-wrap:wrap} #mcg .row>label {flex:1; min-width:130px}
+#mcg .step {border-left:3px solid var(--accent); padding-left:13px; margin:15px 0}
+#mcg .chart {height:130px; width:100%; display:block; overflow:visible}
+#mcg .footer {font-size:12px; color:var(--muted); padding-top:16px; border-top:1px solid var(--edge)}
+#mcg .sticky {position:relative; background:#142434f2; backdrop-filter:blur(10px); padding:12px 14px; border:1px solid var(--edge); border-radius:9px; z-index:5;}
+#mcg details {margin:10px 0} #mcg summary {cursor:pointer; color:var(--accent)}
+#mcg code {font-family:ui-monospace,Consolas,monospace; overflow-wrap:anywhere; color:#dbe9f5}
+#mcg .progress {height:5px; background:#34465b; border-radius:5px; overflow:hidden}
+#mcg .progress>span {display:block; height:100%; background:var(--accent)}
+@media(max-width:900px){#mcg .grid{grid-template-columns:1fr} #mcg .kpis{grid-template-columns:1fr 1fr} #mcg .country-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){#mcg{padding:0 10px 25px} #mcg .country-grid{grid-template-columns:1fr} #mcg .kpi strong{font-size:22px} #mcg h1{font-size:25px} #mcg .card{padding:14px}}
+/* Extended telemetry and schedule controls remain inside the native page width. */
+#mcg .chart { min-width:0; width:100%; }
+#mcg #statsNotes p { margin:.6em 0; }
+#mcg #statsChartTitle { overflow-wrap:anywhere; }
+#mcg #statsInterface, #mcg #statsGroup { max-width:100%; }

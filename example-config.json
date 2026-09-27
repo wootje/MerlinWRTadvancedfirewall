@@ -1,0 +1,22 @@
+{
+  "enabled": true,
+  "country_enabled": true,
+  "countries": [
+    "BE",
+    "DE",
+    "NL"
+  ],
+  "skynet": true,
+  "abuse": false,
+  "score": 90,
+  "ports": [
+    {
+      "direction": "both",
+      "protocol": "udp",
+      "ports": "443",
+      "side": "remote"
+    }
+  ],
+  "extra_rules": "",
+  "max_rows": 3000
+}
